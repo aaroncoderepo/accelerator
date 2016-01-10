@@ -1,2 +1,0 @@
-# accelerator
-AngularJS, MVC
