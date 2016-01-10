@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="schoolApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    <link rel="stylesheet" href="/Content/jquery-ui.css" />
+</head>
+<body>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/angular")
+    <script type="text/javascript" src="@Url.Content("/Scripts/modal-dialog.js")"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,18 @@
+﻿<div id="dialog-form-student" title="Add Student">
+    <p class="validateTips"></p>
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <fieldset>
+            <input type="hidden" name="classId" id="classId" value="{{selectedClass}}" />
+            <label for="studentName">Student name*</label>
+            <input type="text" name="studentName" id="studentName" value="" class="text ui-widget-content ui-corner-all">
+            <label for="studentAge">Student Age*</label>
+            <input type="text" name="studentAge" id="studentAge" value="" class="text ui-widget-content ui-corner-all">
+            <label for="studentGPA">Student GPA*</label>
+            <input type="text" name="studentGPA" id="studentGPA" value="" class="text ui-widget-content ui-corner-all">
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+    }
+</div>
+

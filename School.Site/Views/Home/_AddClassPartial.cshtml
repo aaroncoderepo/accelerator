@@ -1,0 +1,16 @@
+﻿<div id="dialog-form" title="Add Class">
+    <p class="validateTips"></p>
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <fieldset>
+            <label for="className">Class name*</label>
+            <input type="text" name="className" id="className" value="" class="text ui-widget-content ui-corner-all">
+            <label for="location">Location*</label>
+            <input type="text" name="location" id="location" value="" class="text ui-widget-content ui-corner-all">
+            <label for="teacherName">Teacher name*</label>
+            <input type="text" name="teacherName" id="teacherName" value="" class="text ui-widget-content ui-corner-all">
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+    }
+</div>

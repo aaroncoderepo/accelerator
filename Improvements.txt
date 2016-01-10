@@ -1,0 +1,4 @@
+Architectural Notes
+The design was a balance between rapid development and seperation of concerns.
+Ideally EF entities would be mapped to DTO's using a tool such as AutoMapper, and an additional layer would be added to implement this.
+DTO objects should be used instead of EF entities in the 'School.Site' layer.

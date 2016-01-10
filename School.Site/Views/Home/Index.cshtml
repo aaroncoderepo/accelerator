@@ -1,0 +1,61 @@
+﻿@model IEnumerable<School.Domain.Entities.Class>
+
+@{
+    ViewBag.Title = "School Demo";
+}
+
+<h2>Classes</h2>
+
+<div ng-controller="schoolController">
+    <table class="School" id="SchoolClasses">
+        <tr><th ng-click="changeSorting('Name')">Class Name</th><th>Location</th><th>Teacher Name</th><th></th><th></th></tr>
+        <tr data-ng-repeat="class in school.classes|orderBy:sort.column:sort.descending" ng-class='{selected: class.Id==selectedClass}'>
+            <td ng-click="setClass(class.Id, class.Name, this)" style="cursor: pointer;">
+                {{class.Name}}
+            </td>
+            <td ng-click="setClass(class.Id, class.Name,  this)" style="cursor: pointer;">
+                {{class.Location}}
+            </td>
+            <td ng-click="setClass(class.Id, class.Name,  this)" style="cursor: pointer;">
+                {{class.TeacherName}}
+            </td>
+            <td>
+                <a href="javascript:void(0);" ng-click="raiseNotImplementedException()">Edit</a>
+            </td>
+            <td>
+                <a href="javascript:void(0);" ng-click="deleteClass(class.Id)" style="cursor: pointer;">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <input type="button" class="AddClass" data-id="{{deal.DealId}}" style="cursor: pointer;" value="Add" />
+    <br /><br />
+    <div ng-hide="checkStudentVisibility();">
+        {{selectedclassname}}
+        <table class="School">
+            <tr><th>Student Name</th><th>Age</th><th>GPA</th><th></th><th></th></tr>
+            <tr data-ng-repeat="student in school.students">
+                <td ng-class="{selectedGPA: checkStudentGPA(student.GPA)}">
+                    {{student.Name}}
+                </td>
+                <td>
+                    {{student.Age}}
+                </td>
+                <td>
+                    {{student.GPA}}
+                </td>
+                <td>
+                    <a href="javascript:void(0);" ng-click="raiseNotImplementedException()">Edit</a>
+                </td>
+                <td>
+                    <a href="javascript:void(0);" ng-click="deleteStudent(student.Id)" style="cursor: pointer;">Delete</a>
+                </td>
+            </tr>
+        </table>
+
+        <br />
+        <input type="button" class="AddStudent" data-id="{{selectedClass}}" style="cursor: pointer;" value="Add" />
+    </div>
+    @Html.Partial("_AddClassPartial")
+    @Html.Partial("_AddStudentPartial")
+</div>
